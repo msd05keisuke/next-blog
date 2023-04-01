@@ -1,0 +1,13 @@
+name: next-blog
+
+# 何をトリガーするか
+on:
+  push:
+    branches: [main]
+  repository_dispatch: # 外部サービスからのトリガー
+    types: [new-blog]
+
+# トリガーした際に何をするか
+jobs:
+  build:
+    runs-on: ubuntu-latest

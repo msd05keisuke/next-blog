@@ -10,6 +10,7 @@ type Props = {
 const Home = ({ blogs }: Props) => {
   return (
     <div>
+      <div>HOGE</div>
       <ul>
         {blogs.map((blog: Blog) => (
           <li key={blog.id}>
