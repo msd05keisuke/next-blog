@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, NextPage } from 
 import { client } from "@/src/libs/client";
 import { Blog } from "@/src/types/blog";
 
-const BlogId = (blog: Blog) => {
+const BlogId: NextPage<Blog> = (blog) => {
 
     return (
         <main>
@@ -28,6 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async (
     context: GetStaticPropsContext<{ id: string }>
 ) => {
+    console.log(context.params)
     const id = context.params?.id;
     const data = await client.get({ endpoint: "blog", contentId: id });
     return {
