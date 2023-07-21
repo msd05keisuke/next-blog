@@ -1,7 +1,8 @@
-import { GetStaticProps } from 'next'
-import Link from "next/link";
-import { client } from "../src/libs/client";
-import { Blog } from "../src/types/blog";
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
+
+import { client } from '../libs/client';
+import { Blog } from '../types/blog';
 
 type Props = {
   blogs: Blog[];
@@ -22,10 +23,9 @@ const Home = ({ blogs }: Props) => {
   );
 };
 
-
 // APIから取得したデータをテンプレートに受け渡す(SSGの際に利用)
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.get({ endpoint: "blog" });
+  const data = await client.get({ endpoint: 'blog' });
   return {
     props: {
       blogs: data.contents,
